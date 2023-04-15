@@ -1,9 +1,15 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
+import NewsSummaryCart from "../Share/newsSummay/NewsSummaryCart";
 
 const Home = () => {
+  const Allnews = useLoaderData();
+
   return (
     <div>
-      <h3>This is home component</h3>
+      {Allnews.map((news) => (
+        <NewsSummaryCart key={news._id} news={news}></NewsSummaryCart>
+      ))}
     </div>
   );
 };
